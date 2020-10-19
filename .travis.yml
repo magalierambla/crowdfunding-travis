@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+- '12'
+
+branches:
+  only:
+    - master
+
+install:
+- npm install
+- npm i -g angular-cli
+before_script:
+- npm test
+script:
+- ng build
