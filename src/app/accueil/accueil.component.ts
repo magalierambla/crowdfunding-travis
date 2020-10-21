@@ -6,6 +6,7 @@ import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { DatePipe } from '@angular/common';
 import {ProjectModel, templteProjectModel} from '../interfaces/models';
 import { CookieService } from 'ngx-cookie-service';
+import fixProjectFormat from '../_utils/fixProjectFormat';
 
 declare var navigator: any;
 
@@ -166,48 +167,7 @@ formaterListProject() {
 
    /******************************************************************* */
 
-
-   if (this.listProjects[index]._statut_project.nom === 'Attente'){
-
-
-     this.listProjects[index]._statut_project.nom = 'Attente';
-
-    }
-
-   if (this.listProjects[index]._statut_project.nom === 'Valide'){
-
-
-     this.listProjects[index]._statut_project.nom = 'Validé';
-
-    }
-
-   if (this.listProjects[index]._statut_project.nom === 'Termine'){
-
-
-     this.listProjects[index]._statut_project.nom = 'Terminé';
-
-    }
-
-   if (this.listProjects[index]._statut_project.nom === 'Annule'){
-
-
-     this.listProjects[index]._statut_project.nom = 'Annulé';
-
-    }
-
-   if (this.listProjects[index]._statut_project.nom === 'En cours'){
-
-
-     this.listProjects[index]._statut_project.nom = 'En cours';
-
-    }
-
-   if (this.listProjects[index]._statut_project.nom === 'Renouvele'){
-
-
-     this.listProjects[index]._statut_project.nom = 'Renouvele';
-
-    }
+  this.listProjects[index]._statut_project.nom = fixProjectFormat(this.listProjects[index]._statut_project.nom)
 
      /********************************************************** */
 

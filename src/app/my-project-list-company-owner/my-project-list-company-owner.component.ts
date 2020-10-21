@@ -5,7 +5,7 @@ import { apiHttpSpringBootService } from './../api-spring-boot.service';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 import { DatePipe } from '@angular/common';
 import {UserModel, ProjectModel, templteProjectModel} from '../interfaces/models';
-
+import fixProjectFormat from '../_utils/fixProjectFormat';
 
 
 @Component({
@@ -192,48 +192,7 @@ export class MyProjectListCompanyOwnerComponent implements OnInit {
 
       /******************************************************************* */
 
-
-      if (this.listProjects[index]._statut_project.nom === 'Attente') {
-
-
-        this.listProjects[index]._statut_project.nom = 'Attente';
-
-      }
-
-      if (this.listProjects[index]._statut_project.nom === 'Valide') {
-
-
-        this.listProjects[index]._statut_project.nom = 'Validé';
-
-      }
-
-      if (this.listProjects[index]._statut_project.nom === 'Termine') {
-
-
-        this.listProjects[index]._statut_project.nom = 'Terminé';
-
-      }
-
-      if (this.listProjects[index]._statut_project.nom === 'Annule') {
-
-
-        this.listProjects[index]._statut_project.nom = 'Annulé';
-
-      }
-
-      if (this.listProjects[index]._statut_project.nom === 'En cours') {
-
-
-        this.listProjects[index]._statut_project.nom = 'En cours';
-
-      }
-
-      if (this.listProjects[index]._statut_project.nom === 'Renouvele') {
-
-
-        this.listProjects[index]._statut_project.nom = 'Renouvele';
-
-      }
+      this.listProjects[index]._statut_project.nom = fixProjectFormat(this.listProjects[index]._statut_project.nom)
 
       /********************************************************** */
 
