@@ -1,10 +1,13 @@
 language: node_js
 node_js:
 - '12'
+addons:
+  sonarcloud:
+    organization: "magalierambla"
 
 branches:
   only:
-    - master
+  - master
 
 install:
 - npm install
@@ -12,4 +15,9 @@ install:
 before_script:
 - npm test
 script:
-- ng build
+- echo 'ok'
+
+
+cache:
+  directories:
+  - node_modules
